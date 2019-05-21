@@ -29,7 +29,7 @@ sourceGenerators in Compile += (avroScalaGenerateSpecific in Compile).taskValue
 
 baseKafkaComposeSettings // Enable all tasks and setting related to Kafka
 
-kafkaComposeTopicNames := List("a_sample_topic") // Optional: if Nil, no topics will be pre-created.
+kafkaComposeTopicNames := List("source_topic", "destination_topic") // Optional: if Nil, no topics will be pre-created.
 
 appImageName := ImageName("reponame/myappimage") // this is the name of the streaming app docker image.
 

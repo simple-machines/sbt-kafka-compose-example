@@ -13,12 +13,12 @@ object SampleStreamsBuilder {
 
     val properties = new Properties()
 
-    properties.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "kafka:9092")
+    properties.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092")
     properties.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "sample_application")
     properties.setProperty(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, "io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde")
-
     properties.setProperty(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, "io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde")
     properties.setProperty(StreamsConfig.DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG, "org.apache.kafka.streams.errors.LogAndFailExceptionHandler")
+    properties.setProperty("schema.registry.url", "http://schemaregistry:8081")
 
     builder.stream("source_topic", Consumed.`with`[String, String](Serdes.String(), Serdes.String()))
       .map[SampleKey, SampleValue]((key, value) => {
