@@ -7,7 +7,7 @@ object StreamRunner extends App {
 
   val countDownLatch = new CountDownLatch(1)
 
-  val streams = SampleStreamsBuilder.streams
+  val streams = SampleStreamsBuilder.streams(sys.env("BOOTSTRAP_SERVERS"))
 
   streams.start()
 

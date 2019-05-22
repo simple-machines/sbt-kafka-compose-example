@@ -37,6 +37,6 @@ enablePlugins(DockerPlugin) // Enable this plugin always
 
 kafkaComposeSchemaRegistry := true // Optional: If false, no schema registry will be spinned up.
 
-kafkaComposeStreamingJobs := List(KStreamJob("au.com.simplemachines.kstream.sample.StreamRunner", Map.empty[String, String]))
+kafkaComposeStreamingJobs := List(KStreamJob(mainClassName = "au.com.simplemachines.kstream.sample.StreamRunner", env = Map("BOOTSTRAP_SERVERS" -> "kafka:9092")))
 
 ///

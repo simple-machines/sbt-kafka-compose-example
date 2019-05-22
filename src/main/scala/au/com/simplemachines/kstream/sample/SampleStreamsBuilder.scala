@@ -8,12 +8,12 @@ import org.apache.kafka.streams.{KafkaStreams, KeyValue, StreamsBuilder, Streams
 import sample.{SampleKey, SampleValue}
 
 object SampleStreamsBuilder {
-  def streams: KafkaStreams = {
+  def streams(bootstrapServers: String): KafkaStreams = {
     val builder = new StreamsBuilder
 
     val properties = new Properties()
 
-    properties.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092")
+    properties.setProperty(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers)
     properties.setProperty(StreamsConfig.APPLICATION_ID_CONFIG, "sample_application")
     properties.setProperty(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, "io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde")
     properties.setProperty(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, "io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde")
