@@ -52,7 +52,7 @@ class IntegrationTest extends FunSuite with TestSupport {
         retry(
           Try { consumer.poll(java.time.Duration.ofSeconds(10)) }
             .toEither
-            .flatMap(records => if (records.count() != 1) Left(new RuntimeException(s"count not matching: ${records.count()}")) else Right(records.count())), 15, 10.seconds
+            .flatMap(records => if (records.count() != 1) Left(new RuntimeException(s"count not matching. Expected 1, but received ${records.count()}")) else Right(records.count())), 15, 10.seconds
         )
     } yield count
   }
