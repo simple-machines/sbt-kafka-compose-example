@@ -14,4 +14,4 @@ Refer to build.sbt and plugins.sbt on how to configure sbt-kafka-compose.
 
 
 # Troubleshooting
-Explicitly try `sbt kafkaComposeDown` and then start `sbt kafkaComposeIntegrationTest`
+If above command failed, explicitly try `sbt kafkaComposeDown` and then start `sbt kafkaComposeIntegrationTest`.
