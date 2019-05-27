@@ -5,7 +5,7 @@ A sample KStreams app with an integration test, showing the usage of sbt-kafka-c
 Run:
 
 ```
-sbt kafkaComposeLocalIntegrationTest
+sbt kafkaComposeIntegrationTest
 
 ```
 
