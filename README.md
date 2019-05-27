@@ -11,3 +11,7 @@ sbt kafkaComposeIntegrationTest
 
 Refer to IntegrationTest in `it` folder to see the integration test.
 Refer to build.sbt and plugins.sbt on how to configure sbt-kafka-compose.
+
+
+# Troubleshooting
+Explicitly try `sbt kafkaComposeDown` and then start `sbt kafkaComposeIntegrationTest`
